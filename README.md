@@ -107,6 +107,34 @@ import org.slf4j.LoggerFactory;
 private static Logger LOGGER = LoggerFactory.getLogger(FooFactory.class);
 ```
 
+No pom, é preciso adicionar as dependências:
+
+```xml
+<dependency>
+	<groupId>org.slf4j</groupId>
+	<artifactId>slf4j-api</artifactId>
+	<version>1.7.26</version>
+</dependency>
+<dependency>
+	<groupId>org.slf4j</groupId>
+	<artifactId>slf4j-simple</artifactId>
+	<version>1.7.26</version>
+</dependency>
+```
+
+Isso evita o erro no console:
+
+```
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+```
+
+E também faz com que o logger seja executado e imprima o log no console.
+
+Como estamos usando o spring boot adicionar estas dependencias não será necessário, mas se fosse um projeto sem spring boot,
+teriamos que adicionar essas dependencias para o slf4j funcionar.
+
 
 ## actuator
 
